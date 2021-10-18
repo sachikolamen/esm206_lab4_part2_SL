@@ -1,0 +1,26 @@
+---
+title: "Save A Graph"
+author: "Sachiko Lamen"
+date: "10/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(here)
+library(palmerpenguins)
+```
+##### Create ggplot graph and save somewhere
+
+```{r}
+ggplot(data = penguins, aes(x = island)) +
+  geom_bar(aes(fill = species))
+```
+```{r}
+#save the plot using `ggsave()` this will default save the most recently created graph unless otherwise specified. Can also use `here()` to save to specific locations. Tell where to save, and what to save as
+
+ggsave(here("figures", "penguins_count.png"))
+```
+
+
